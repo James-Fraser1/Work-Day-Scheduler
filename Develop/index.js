@@ -19,6 +19,26 @@ $(document).ready(function () {
   $("#1600 .text").val(localStorage.getItem("1600"));
   $("#1700 .text").val(localStorage.getItem("1700"));
 
+  function hourTracker() {
+    var currentHour = moment().hour();
 
-
+    $(".timeBlock").each(function () {
+      var eachHour = parseInt($(this).attr("id").split("hour")[1]);
+      
+      if (eachHour < currentHour) {
+        $(this).addClass("past");
+        $(this).removeClass("future");
+        $(this).removeClass("present");
+      } else if (eachHour === currentHour) {
+        $(this).removeClass("past");
+        $(this).addClass("present");
+        $(this).removeClass("future");
+      } else {
+        $(this).removeClass("present");
+        $(this).removeClass("past");
+        $(this).addClass("future");
+      }
+    })
+  }
+  hourTracker();
 })
