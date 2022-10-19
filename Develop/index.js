@@ -19,6 +19,7 @@ $(document).ready(function () {
   $("#1600 .text").val(localStorage.getItem("1600"));
   $("#1700 .text").val(localStorage.getItem("1700"));
 
+  // Function to capture all hour blocks, run through each timeBlock, then change the style of the timeBlock based on time
   function hourTracker() {
     var currentHour = moment().hour();
 
